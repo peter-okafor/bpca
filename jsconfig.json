@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "jsx": "react",
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["resources/js/*"],
+            "@blog/*": ["resources/js/blog/*"],
+        }
+    },
+    "include": ["./resources"],
+    "exclude": ["node_modules", "public"]
+}

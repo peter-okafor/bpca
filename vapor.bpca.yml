@@ -1,0 +1,47 @@
+id: 36595
+name: pests-org
+environments:
+    production:
+        memory: 1024
+        cli-memory: 512
+        runtime: docker
+        database: BpcaDatabase
+        gateway-version: 2
+        storage: bpca-portal-fs
+        tmp-storage: 1024
+        cli-tmp-storage: 1024
+        queue-tmp-storage: 1024
+        cache: bpca-cache
+        build:
+            - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
+            - 'php artisan event:cache'
+            - 'php artisan view:cache'
+            - 'npm ci && rm -rf node_modules'
+            - 'rm vendor/laravel/nova/public/app.js'
+            - 'rm vendor/laravel/nova/public/vendor.js'
+            - 'rm -rf automated-tests'
+            - 'rm -rf storage/*'
+            - 'rm -rf vendor/spatie/ray/docs'
+            - 'rm -rf vendor/laravel/nova/tests'
+    staging:
+        memory: 1024
+        cli-memory: 512
+        runtime: docker
+        database: BpcaDatabase
+        gateway-version: 2
+        storage: bpca-portal-staging-fs
+        tmp-storage: 1024
+        cli-tmp-storage: 1024
+        queue-tmp-storage: 1024
+        cache: bpca-cache
+        build:
+          - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
+          - 'php artisan event:cache'
+          - 'php artisan view:cache'
+          - 'npm ci && rm -rf node_modules'
+          - 'rm vendor/laravel/nova/public/app.js'
+          - 'rm vendor/laravel/nova/public/vendor.js'
+          - 'rm -rf automated-tests'
+          - 'rm -rf storage/*'
+          - 'rm -rf vendor/spatie/ray/docs'
+          - 'rm -rf vendor/laravel/nova/tests'

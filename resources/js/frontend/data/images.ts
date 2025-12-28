@@ -1,0 +1,1 @@
+export const BPCA_MEMBER_LOGO = '/images/BPCA-member-logo-400-400.png';

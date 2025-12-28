@@ -1,0 +1,16 @@
+@import url('https://fonts.cdnfonts.com/css/soleil');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fc0000;
+    background-color: green;
+    border-color: green;
+}
+
+.sidebar-item-title {
+    color: rgba(var(--colors-gray-900));
+}
